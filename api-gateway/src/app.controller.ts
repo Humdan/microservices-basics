@@ -9,11 +9,13 @@ export class AppController {
 
   @Get('/ping-a')
   pingServiceA() {
+    console.log('Hit /service-a');
     return this.appService.pingServiceA();
   }
 
   @Get('/ping-b')
   pingServiceB() {
+    console.log('Hit /service-b');
     return this.appService.pingServiceB();
   }
 
@@ -28,5 +30,17 @@ export class AppController {
         pongServiceB,
       })),
     );
+  }
+
+  @Get('/ping-c')
+  pingServiceC() {
+    console.log('Hit /service-c');
+    return this.appService.someNumber();
+  }
+
+  @Get('/incidents')
+  ServiceIncidents() {
+    console.log('Getting Incidents');
+    return this.appService.getIncidents();
   }
 }

@@ -42,7 +42,7 @@ import { AppController } from "./app.controller";
 @Module({
   imports: [],
   controllers: [AppController],
-  providers: []
+  providers: [],
 })
 export class AppModule {}
 ```
@@ -87,8 +87,8 @@ async function bootstrap() {
     transport: Transport.TCP,
     options: {
       host: "127.0.0.1",
-      port: 8888
-    }
+      port: 8888,
+    },
   });
   app.listen(() => logger.log("Microservice A is listening"));
 }
@@ -160,13 +160,13 @@ import { AppService } from "./app.service";
         transport: Transport.TCP,
         options: {
           host: "127.0.0.1",
-          port: 8888
-        }
-      }
-    ])
+          port: 8888,
+        },
+      },
+    ]),
   ],
   controllers: [AppController],
-  providers: [AppService]
+  providers: [AppService],
 })
 export class AppModule {}
 ```
@@ -260,7 +260,7 @@ export class AppController {
     ).pipe(
       map(([pongServiceA, pongServiceB]) => ({
         pongServiceA,
-        pongServiceB
+        pongServiceB,
       }))
     );
   }

@@ -7,6 +7,6 @@ import { delay } from 'rxjs/operators';
 export class AppController {
   @MessagePattern({ cmd: 'ping' })
   ping(_: any) {
-    return of('pong').pipe(delay(1000));
+    return console.log('Got A');
   }
 }

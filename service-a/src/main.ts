@@ -4,15 +4,18 @@ import { AppModule } from './app.module';
 import { Logger } from '@nestjs/common';
 
 const logger = new Logger();
+const portNumber = 8888;
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice(AppModule, {
     transport: Transport.TCP,
     options: {
       host: '127.0.0.1',
-      port: 8888,
+      port: portNumber,
     },
   });
-  app.listen(() => logger.log('Microservice A is listening'));
+  app.listen(() =>
+    logger.log(`Microservice A is listening on port: ${portNumber}`),
+  );
 }
 bootstrap();
